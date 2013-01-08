@@ -37,12 +37,14 @@
 #include "CXPlatEvent.h"
 #include "CClientSocket.h"
 
+//! CHTTPClient - make a connection and fetch a URL
 class CHTTPClient : public CClientSocket  
 {
 public:
     CHTTPClient();
     virtual ~CHTTPClient();
 
+	//! Connect, even through a proxy
     BOOL    CheckConnect(   const char *szHost,
                             BOOL bSecure, 
                             long lPort, 
@@ -52,7 +54,7 @@ public:
                             const char *szProxyPswd,
                             long dwTimeout);
 
-
+	
     BOOL    GetHTTPBytesReceived(long &dwLength);
     BOOL    GetHTTPContent(char *lpBuffer);
     BOOL    GetHTTPContentType(char *lpBuffer);
@@ -61,6 +63,7 @@ public:
     BOOL    GetHTTPServer(char *lpBuffer);
     BOOL    GetHTTPStatus(long &dwStatus);
 
+	//! Send a request
     BOOL    SendRequest(const char *szHost,
                         const char *szHostName,
                         const char *szPath,
@@ -76,6 +79,7 @@ public:
                         long dwTimeOut,
                         const char *szTransaction = NULL);
 #ifndef NO_SSL
+	//! Send an HTTPS request
     BOOL    SendSSLRequest(char *szHost,
                            char *szHostName,
                            char *szPath,

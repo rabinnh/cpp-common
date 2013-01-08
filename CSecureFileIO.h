@@ -16,15 +16,16 @@
 
 using namespace std;
 
+//! Class to read and write a file using openssl encryption
 class CSecureFileIO
 {
 public:
     CSecureFileIO();
     virtual ~CSecureFileIO();
 
-    // !Retrieve an encrypted file.  Returns bytes read or -1
+    //! Retrieve an encrypted file.  Returns bytes read or -1
     int ReadEncyptedFile(const char *pFilePath, string &sBuffer);
-    // !Write an encrypted file. Returns bytes written or -1
+    //! Write an encrypted file. Returns bytes written or -1
     int WriteEncyptedFile(const char *pFilePath, const char *pBuffer);
     //! Encrypt buffer
     void BF_encrypt(const unsigned char *keydata, int keydatalen, unsigned char *in, unsigned char *out, unsigned int inlen);

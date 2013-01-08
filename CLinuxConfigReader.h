@@ -31,6 +31,7 @@ using namespace std;
 typedef map<string, string> MAP_CONFIG;
 typedef MAP_CONFIG::iterator MAP_CONFIG_ITER;
 
+//! A simple class to read a text configuration file and insert values into a map
 class CLinuxConfigReader
 {
 public:
@@ -38,9 +39,9 @@ public:
     CLinuxConfigReader(const CLinuxConfigReader& orig);
     virtual ~CLinuxConfigReader();
 
-    // Read a configuration value
+    //! Read a configuration value
     string &ReadConfigValue(const char *pKey, const char *pDefault = NULL);
-    // Read a configuration file
+    //! Read a configuration file
     bool ReadConfig(const char *pPath);
 
 public:

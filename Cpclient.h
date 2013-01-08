@@ -30,6 +30,7 @@
 #include "CPConnectionHandler.h"
 #include "CPClientHandler.h"
 
+
 class CPClient;
 
 //! Calls back with the CPClient, result of the attempt, and a user parameter

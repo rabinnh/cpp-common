@@ -13,6 +13,7 @@
 #include <openssl/evp.h>
 #include <openssl/blowfish.h>
 
+//! Class to encrypt data
 class CSporeEncrypt
 {
 public:

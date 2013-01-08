@@ -52,9 +52,13 @@ public:
     virtual ~Base64Coder();
 
 public:
+	//! Encode a buffer, given length
     virtual void Encode(const unsigned char *, int);
+	//! Decode a buffer, given length
     virtual void Decode(const unsigned char *, int);
+	//! Encode a string
     virtual void Encode(const char *sMessage);
+	//! Decode a string
     virtual void Decode(const char *sMessage);
 
     virtual unsigned char *DecodedMessage() const;

@@ -34,6 +34,7 @@ using namespace std;
 typedef map<string, struct timeval> MAP_TIMES;
 typedef MAP_TIMES::iterator MAP_TIMES_ITER;
 
+//! Class to calculate elapsed time
 class ElapsedTime
 {
 public:

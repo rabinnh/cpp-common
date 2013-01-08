@@ -30,14 +30,15 @@ using namespace std;
 
 typedef vector<string>  VECTOR_PHRASES;
 
+//! CExplode - similar to PHP's "explode" function
 class CExplode
 {
 public:
     CExplode();
     virtual ~CExplode();
 
-// Given a string and a delimiter and a delimiter, pass back sections in a vector reference,
-// Returns number of elements or -1 on error
+//! Given a string and a delimiter and a delimiter, pass back sections in a vector reference,
+//! Returns number of elements or -1 on error
 static int Explode(const char *pString, const char *pDelims, VECTOR_PHRASES &vPhrases);
 private:
 
