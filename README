@@ -1,0 +1,45 @@
+COPYRIGHT
+
+Copyright (c) 2010 - Richard Bross, Hollis, NH
+This software is released under the Apache license
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+DESCRIPTION
+
+C++ common is a set of classes to trivialize basic systems operations such as threads, thread pools, socket programming, etc.
+Early on a design decisions was made to avoid creating a library for linking in favor of directly compiling in the required 
+classes.  This minimizes the danger of version issues across different applications.  Typically, symlinks are created from your
+C++ application directory to the class files required.  The typical build pattern is to structure your project as follows:
+
+/projects/common/
+/projects/myapp/
+/projects/myapp/CXPlatThread.h -> ../common/CXPlatThread.h
+
+A small sample of the features provided by these classes:
+
+	The only requirement for CXPlatThread is to create a derived class and implement the "WorkerFunction" method.
+
+	The only requirement for a threadpool is to derive a class from CXPlatPooledThread and implement the "PooledWorkerFunction".
+	You must also derive a class from CXThreadPool and implement the "AllocatePooledThread" method to allocate an object
+	of the derived CXPlatPooledThread class that you created:
+	Example: return(new MyPoolThread());
+
+	The CConnectionSocket, CServerSocket, and CClientSocket classes work in a similar fashion.  Derive a class and implement 
+	the "ProcessData" method.  Use the "SendDataOut" method to send data.
+
+	The CPServer, CPClient, and associated CPHandler and CPConnectionHandler classes serve much the same fucntion, except
+	that they are optimized for highly scalable applications, using a single thread for I/O instead of a thread per connection.
+
+There are alos classes for base 64 encoding/decoding, publishing records to MongoDB in a highly scalable way, creating a native
+code CGI program, an HTTP client, file encryption/decryption (using openssl) and a bunch of synchronization and utility classes.

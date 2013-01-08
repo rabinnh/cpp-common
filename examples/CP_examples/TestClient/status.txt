@@ -1,0 +1,4 @@
+We do need a separate thread to attempt connections.  Otherwise, the CPHandler thread will be in a deadlock.  
+Must use a separate CPHandler for Client connections, so create a base CPHandler class. Derive a CPClientHandler and 
+a CPServerHandler and enforce the appropriate type in the constructor of CPClient and CPServer.  This will force
+the user to use different ones.
